@@ -25,13 +25,18 @@ while running:
     # apply our player
     screen.blit(game.player.image, game.player.rect)
     
-    # get all the projectiles
-    
+    # apply all the projectiles
     for projectile in game.player.all_projectile:
         projectile.move()
+        
+    for monster in game.all_monsters:
+        monster.move()
      
     # apply all the images of the projectile
     game.player.all_projectile.draw(screen)
+    
+    # apply all the images of the monster
+    game.all_monsters.draw(screen)
     
     #Verify the player movement
     if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
