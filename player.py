@@ -1,4 +1,7 @@
 import pygame
+
+from projectile import Projectile
+
 #sprite are objects that move 
 class Player(pygame.sprite.Sprite):
     
@@ -12,6 +15,10 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 420
         self.rect.y = 500
+        self.all_projectile = pygame.sprite.Group()
+        
+    def launch_projectile(self):
+        self.all_projectile.add(Projectile(self))
         
     def move_right(self):
         self.rect.x += self.velocity
