@@ -52,12 +52,12 @@ while running:
         elif event.type == pygame.KEYUP:
             game.pressed[event.key] = False
             
-            if event.key == pygame.K_RIGHT:
-                # game.player.move_right()
-                print("Déplacement vers la droite")
+            # if event.key == pygame.K_RIGHT:
+            #     # game.player.move_right()
+            #     print("Déplacement vers la droite")
                 
-            elif event.key == pygame.K_LEFT:
-                # game.player.move_left()
-                print("Déplacement vers la gauche")
+            # elif event.key == pygame.K_LEFT:
+            #     # game.player.move_left()
+            #     print("Déplacement vers la gauche")
              
             
