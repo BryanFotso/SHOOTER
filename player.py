@@ -26,13 +26,10 @@ class Player(pygame.sprite.Sprite):
     def damage(self, amount_of_damage):
         self.health -= amount_of_damage
         
-        # Verify if the monster is still alive
-        # if self.health <= 0:
-        #      self.rect.x = 900 + random.randint(0, 100)
-        #      self.float_x = float(self.rect.x)
-        #      self.health = self.max_health
-        #      self.velocity = 0.25 + random.uniform(0, 0.5)
-        
+        # Verify if the player is death
+        if self.health <= 0:
+             self.game.game_over()
+             
     def move_right(self):
         
         #if the player is not colliding with a monster

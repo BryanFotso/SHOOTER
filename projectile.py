@@ -29,7 +29,7 @@ class Projectile(pygame.sprite.Sprite):
             monster.damage(self.player.attack)
         
         # To verify if our projectile is out of the screen
-        if self.rect.x > 1080:
+        if self.rect.x > 1000:
             
             # delete the projectile
             self.remove()
