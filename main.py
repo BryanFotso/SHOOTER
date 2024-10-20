@@ -28,13 +28,18 @@ while running:
     # apply all the projectiles
     for projectile in game.player.all_projectile:
         projectile.move()
-        
+    
+    # update health bar of the player
+    game.player.update_health_bar(screen)
+    
+    # update health bar and movement of the monster    
     for monster in game.all_monsters:
         monster.move()
+        monster.update_health_bar(screen)
      
     # apply all the images of the projectile
     game.player.all_projectile.draw(screen)
-    
+
     # apply all the images of the monster
     game.all_monsters.draw(screen)
     

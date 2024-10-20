@@ -22,6 +22,17 @@ class Player(pygame.sprite.Sprite):
     def launch_projectile(self):
         self.all_projectile.add(Projectile(self))
         
+    # to take into account the damage    
+    def damage(self, amount_of_damage):
+        self.health -= amount_of_damage
+        
+        # Verify if the monster is still alive
+        # if self.health <= 0:
+        #      self.rect.x = 900 + random.randint(0, 100)
+        #      self.float_x = float(self.rect.x)
+        #      self.health = self.max_health
+        #      self.velocity = 0.25 + random.uniform(0, 0.5)
+        
     def move_right(self):
         
         #if the player is not colliding with a monster
@@ -30,3 +41,23 @@ class Player(pygame.sprite.Sprite):
         
     def move_left(self):
         self.rect.x -= self.velocity
+        
+    def update_health_bar(self, surface):
+        
+        # define a color for the life 
+        bar_color = (111, 210, 46)
+        
+        # define a color for the backspace of the life 
+        back_bar_color = (60,63,60)
+        
+        #define the position of the background of the life 
+        back_bar_position = [self.rect.x + 50 , self.rect.y, self.max_health, 7]
+        
+        # define the position of its life, its thikness and thinnness
+        bar_position = [self.rect.x + 50 , self.rect.y, self.health, 7]
+
+        # Draw our life bar
+        pygame.draw.rect(surface, back_bar_color, back_bar_position)
+        
+        # Draw our life bar
+        pygame.draw.rect(surface, bar_color, bar_position)
