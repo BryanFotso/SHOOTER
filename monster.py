@@ -13,7 +13,7 @@ class Monster(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 900 + random.randint(0, 100)
         self.rect.y = 540 
-        self.velocity = 0.25 + random.uniform(0, 0.5)
+        self.velocity = 0.1 + random.uniform(0, 0.5)
         self.float_x = float(self.rect.x)  # Use a float to sum the movement
         
     def move(self):
@@ -56,6 +56,8 @@ class Monster(pygame.sprite.Sprite):
             self.rect.x = 900 + random.randint(0, 100)
             self.float_x = float(self.rect.x)
             self.health = self.max_health
-            self.velocity = 0.25 + random.uniform(0, 0.5)
+            self.velocity = 0.1 + random.uniform(0, 0.5)
             
-        
+            if self.game.comet_event.is_full_loaded():
+                self.game.all_monsters.remove(self) 
+                self.game.comet_event.attempt_fall()
